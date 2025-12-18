@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 七殺星在午宮流年運勢 - 完整版</title>
+    <!-- 載入 Tailwind CSS 用於美化 (需網路連線) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+        body { 
+            font-family: 'Noto Sans TC', sans-serif; 
+            background-color: #0f172a;
+        }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="text-slate-100 p-4 md:p-8">
+
+    <div id="app" class="max-w-4xl mx-auto">
+        <div class="text-center p-20 text-slate-500">
+            程式載入中，請確保已連接網路...
+        </div>
+    </div>
+
+    <script>
+        // 運勢完整資料庫 (甲至癸) - 已補齊所有年份
+        const fortuneData = {
+            '甲': {
+                year: '甲年 (Jia Year)',
+                title: '#七殺 #命宮在午 #甲年 #2026',
+                stars: '七殺坐命在午。官祿宮破軍生年權自化權，化廉貞祿到福德宮，化太陽忌到疾厄宮。',
+                core: [
+                    { icon: '💼', title: '事業', desc: '會有許多創新突破、大破大力，需要挑戰創新的事物。' },
+                    { icon: '💰', title: '財帛', desc: '在外賺錢機會較少。對待親友或上司較不計較錢財。' },
+                    { icon: '❤️', title: '感情', desc: '農曆 4月、10月需注意與配偶相處，易有磨合，容易弄得人家情緒不好。' },
+                    { icon: '✈️', title: '遷移', desc: '在外賺錢比較沒有機會。' }
+                ],
+                highlights: {
+                    best: '廉貞祿在福德宮會轉天梁祿到兄弟宮照奴僕宮。',
+                    worst: '太陽忌在疾厄宮會轉巨門忌到子女宮，巨門自化忌後又退回疾厄宮沖父母宮。'
+                },
+                blindSpots: ['個性脾氣有比較負面、悲觀的一面。', '講話突然帶有嗆聲語氣，容易有口舌是非。'],
+                months: {
+                    good: [{ m: '6月', d: '負面轉陽光' }, { m: '12月', d: '與長輩相處愉快' }],
+                    bad: [{ m: '4月', d: '與親友上司配偶需磨合' }, { m: '10月', d: '情緒不佳期' }]
+                },
+                advice: ['運用創新在藝術、科技領域。', '把握好運月展現陽光特質。', '控制脾氣避免口舌是非。'],
+                videoLink: 'iLucky986/七殺/命宮在午/甲年/2026運勢'
+            },
+            '乙': {
+                year: '乙年 (Yi Year)',
+                title: '#七殺 #命宮在午 #乙年 #2026',
+                stars: '七殺坐命在午。田宅宮化天機祿到子女宮，化太陰忌到疾厄宮沖父母宮。',
+                core: [
+                    { icon: '💼', title: '事業', desc: '家人提供好處讓你做事手腕靈活，點子多，計算分析能力強。' },
+                    { icon: '💰', title: '財帛', desc: '農曆 1月、7月在美麗、科技、表演才藝方面有機會賺錢。' },
+                    { icon: '❤️', title: '感情', desc: '戀愛合夥投資緣分多。亥時生者注意合約細節，防前好後壞。' },
+                    { icon: '✈️', title: '遷移', desc: '戀愛合夥投資機會多，能得到財利。' }
+                ],
+                highlights: {
+                    best: '天機祿會轉武曲祿到遷移宮照命宮。',
+                    worst: '健康需注意頭部、血光、眼睛、血管、婦科。'
+                },
+                blindSpots: ['財福兩宮自化，機會不把握就會失去。', '壞運月份想法易陷入黑暗面。'],
+                months: {
+                    good: [{ m: '1月', d: '才藝表演想法多' }, { m: '7月', d: '賺錢機會出現' }],
+                    bad: [{ m: '6月', d: '想法陷入黑暗' }, { m: '12月', d: '情緒低迷期' }]
+                },
+                advice: ['機會要趕快把握，否則會消失。', '善用家人資源。', '酉時生注意身體代謝問題。'],
+                videoLink: 'iLucky986/七殺/命宮在午/乙年/2026運勢'
+            },
+            '丙': {
+                year: '丙年 (Bing Year)',
+                title: '#七殺 #命宮在午 #丙年 #2026',
+                stars: '七殺坐命在午。福德宮化天同祿到奴僕宮，廉貞生年忌在福德宮自化權。',
+                core: [
+                    { icon: '💼', title: '事業', desc: '農曆 1月、7月有許多發展財藝賺錢的機會。' },
+                    { icon: '💰', title: '財帛', desc: '朋友上司隨和聰明，願意給你出外賺錢的機會。' },
+                    { icon: '❤️', title: '感情', desc: '農曆 2月、8月在合夥/戀情上會有許多苦惱。' },
+                    { icon: '✈️', title: '遷移', desc: '朋友上司願意引見做生意。' }
+                ],
+                highlights: {
+                    best: '天同祿在奴僕宮會轉武曲祿到遷移宮照命宮。',
+                    worst: '福德宮受限，想法容易像「籠中鳥」困住自己。'
+                },
+                blindSpots: ['即使機會來了，若不願開放心胸接納也會錯失。', '未時生不適合合夥投資。'],
+                months: {
+                    good: [{ m: '1月', d: '事業發展佳' }, { m: '7月', d: '能否把握看自己' }],
+                    bad: [{ m: '2月', d: '合夥戀情無計可施' }, { m: '8月', d: '事業合夥多苦惱' }]
+                },
+                advice: ['必須打開新胸接納機會。', '克服自我限制。', '注意文書契約與交通安全。'],
+                videoLink: 'iLucky986/七殺/命宮在午/丙年/2026運勢'
+            },
+            '丁': {
+                year: '丁年 (Ding Year)',
+                title: '#七殺 #命宮在午 #丁年 #2026',
+                stars: '七殺坐命在午。父母宮化太陰祿入疾厄宮，化巨門忌入子女宮。',
+                core: [
+                    { icon: '💼', title: '事業', desc: '適合創新、藝術科技、與女性相關。發揮照顧特質。' },
+                    { icon: '💰', title: '財帛', desc: '對錢野心大。為賺錢可能需要藏在外。' },
+                    { icon: '❤️', title: '感情', desc: '農曆 4月、10月與長輩親友緣分不錯。' },
+                    { icon: '✈️', title: '遷移', desc: '藏在外地時，利益反而不如預期。' }
+                ],
+                highlights: {
+                    best: '太陰祿在疾厄宮會轉破軍祿到官祿宮。',
+                    worst: '壞運月對賺錢沒自信，容易失去機會。'
+                },
+                blindSpots: ['在外地時感覺不如預期。', '錢財處理需特別小心。'],
+                months: {
+                    good: [{ m: '4月', d: '長輩朋友緣分好' }, { m: '10月', d: '工作機會多' }],
+                    bad: [{ m: '5月', d: '錢財問題突出' }, { m: '11月', d: '因沒自信而錯失良機' }]
+                },
+                advice: ['發揮照顧與管理特質。', '大膽挑戰未做過的事。', '野心要節制。'],
+                videoLink: 'iLucky986/七殺/命宮在午/丁年/2026運勢'
+            },
+            '戊': {
+                year: '戊年 (Wu Year)',
+                title: '#七殺 #命宮在午 #戊年 #2026',
+                stars: '七殺坐命在午。命宮化貪狼祿到財帛宮，天機忌到子女宮。',
+                core: [
+                    { icon: '💼', title: '事業', desc: '在外拓展時容易卡關或有盲點。' },
+                    { icon: '💰', title: '財帛', desc: '身段柔軟，適合美麗、科技、社交領域。' },
+                    { icon: '❤️', title: '感情', desc: '不適合合夥，破局率高。注意夫妻磨合。' },
+                    { icon: '✈️', title: '遷移', desc: '喜歡藏在外，為賺錢或其他原因都無所謂。' }
+                ],
+                highlights: {
+                    best: '貪狼祿在財帛宮會轉廉貞祿到福德宮。',
+                    worst: '容易有「人和」問題，個性堅持有摩擦。'
+                },
+                blindSpots: ['合夥遇到問題想競爭計較。', '子女看事情較死腦筋。'],
+                months: {
+                    good: [{ m: '4月', d: '與配偶關係愉快' }, { m: '10月', d: '人際中得利' }],
+                    bad: [{ m: '1月', d: '事業卡關' }, { m: '7月', d: '幫助配偶方式不當' }]
+                },
+                advice: ['建立好關係。', '避免人際摩擦。', '合夥需極度小心。'],
+                videoLink: 'iLucky986/七殺/命宮在午/戊年/2026運勢'
+            },
+            '己': {
+                year: '己年 (Ji Year)',
+                title: '#七殺 #命宮在午 #己年 #2026',
+                stars: '七殺坐命在午。兄弟宮化武曲祿到遷移宮照命宮。',
+                core: [
+                    { icon: '💼', title: '事業', desc: '吸引喜歡娛樂、表演與享受的人群。' },
+                    { icon: '💰', title: '財帛', desc: '母兄在點子上多。丑時生者易消耗精力。' },
+                    { icon: '❤️', title: '感情', desc: '丑時生小心親友關係與合夥。' },
+                    { icon: '✈️', title: '遷移', desc: '母兄會給你很多賺錢點子。' }
+                ],
+                highlights: {
+                    best: '武曲祿在遷移宮會轉天梁祿到奴僕宮。',
+                    worst: '卯時生者父親、政府、賺錢方面問題多。'
+                },
+                blindSpots: ['丑時生易畫蛇添足。', '情緒易受親友影響。'],
+                months: {
+                    good: [{ m: '6月', d: '服務熱情強' }, { m: '12月', d: '賺錢好機會' }],
+                    bad: [{ m: '4月', d: '親友關係麻煩' }, { m: '10月', d: '最難過的月份' }]
+                },
+                advice: ['抓住賺錢機會。', '展現服務熱情。', '避免細節想太多。'],
+                videoLink: 'iLucky986/七殺/命宮在午/己年/2026運勢'
+            },
+            '庚': {
+                year: '庚年 (Geng Year)',
+                title: '#七殺 #命宮在午 #庚年 #2026',
+                stars: '七殺坐命在午。夫妻宮化太陽祿到疾厄宮，天同忌到奴僕宮。',
+                core: [
+                    { icon: '💼', title: '事業', desc: '適合資訊服務、國外、日夜顛倒之行業。' },
+                    { icon: '💰', title: '財帛', desc: '身段柔軟，展現才藝賺錢。' },
+                    { icon: '❤️', title: '感情', desc: '配偶情緒不服輸。絕對不要合夥投資。' },
+                    { icon: '✈️', title: '遷移', desc: '出外運勢好，服務特質能得財。' }
+                ],
+                highlights: {
+                    best: '太陽祿在疾厄宮會轉武曲祿到遷移宮。',
+                    worst: '想法受蔽，提不起勁為人服務。'
+                },
+                blindSpots: ['朋友上司容易霸道。', '酉時生注意腦部健康。'],
+                months: {
+                    good: [{ m: '1月', d: '適合國外發展' }, { m: '7月', d: '展現才藝' }],
+                    bad: [{ m: '6月', d: '能量低落' }, { m: '12月', d: '提不起勁' }]
+                },
+                advice: ['絕對不要合夥。', '建議往國外跑動。', '善用資訊收集。'],
+                videoLink: 'iLucky986/七殺/命宮在午/庚年/2026運勢'
+            },
+            '辛': {
+                year: '辛年 (Xin Year)',
+                title: '#七殺 #命宮在午 #辛年 #2026',
+                stars: '七殺坐命在午。子女宮化巨門生年祿自化祿。',
+                core: [
+                    { icon: '💼', title: '事業', desc: '願意展現才藝，身段非常柔軟。' },
+                    { icon: '💰', title: '財帛', desc: '適合靠口才賺錢。注意名聲。' },
+                    { icon: '❤️', title: '感情', desc: '戀愛合夥是關鍵。未時生契約錯誤多。' },
+                    { icon: '✈️', title: '遷移', desc: '戀愛合夥投資是關鍵。' }
+                ],
+                highlights: {
+                    best: '人生關鍵都在子女宮（戀愛合夥）。',
+                    worst: '酉時生健康問題易影響工作。'
+                },
+                blindSpots: ['不要畫地自限。', '平衡事業與戀愛。'],
+                months: {
+                    good: [{ m: '1月', d: '才藝展現好時機' }, { m: '7月', d: '進財佳' }],
+                    bad: [{ m: '2月', d: '戀愛運勢受損' }, { m: '8月', d: '合夥卡關' }]
+                },
+                advice: ['多展現才藝。', '注意契約細節。', '留意健康狀況。'],
+                videoLink: 'iLucky986/七殺/命宮在午/辛年/2026運勢'
+            },
+            '壬': {
+                year: '壬年 (Ren Year)',
+                title: '#七殺 #命宮在午 #壬年 #2026',
+                stars: '七殺坐命在午。財帛宮化天梁祿到兄弟宮，武曲忌到遷移宮。',
+                core: [
+                    { icon: '💼', title: '事業', desc: '適合上班族、慈善。' },
+                    { icon: '💰', title: '財帛', desc: '對親友慷慨，不計成本投入公益。' },
+                    { icon: '❤️', title: '感情', desc: '農曆 4月、10月有長輩親友介紹機會。' },
+                    { icon: '✈️', title: '遷移', desc: '在外賺錢機會不多，麻煩事多。' }
+                ],
+                highlights: {
+                    best: '天梁祿在兄弟宮會轉天機祿到子女宮。',
+                    worst: '遷移宮自化忌，想賺大錢反自找麻煩。'
+                },
+                blindSpots: ['不可有僥倖心態。', '有嚴重錢財問題。'],
+                months: {
+                    good: [{ m: '4月', d: '與長輩朋友關係佳' }, { m: '10月', d: '獲長輩介紹機會' }],
+                    bad: [{ m: '5月', d: '錢的問題最突出' }, { m: '11月', d: '處理錢財腳踏實地' }]
+                },
+                advice: ['重心放在安穩工作。', '發揮慷慨特質。', '不可有僥倖心態。'],
+                videoLink: 'iLucky986/七殺/命宮在午/壬年/2026運勢'
+            },
+            '癸': {
+                year: '癸年 (Gui Year)',
+                title: '#七殺 #命宮在午 #癸年 #2026',
+                stars: '七殺坐命在午。奴僕宮化破軍祿到官祿宮，貪狼忌到財帛宮。',
+                core: [
+                    { icon: '💼', title: '事業', desc: '親友事業助你在事業上創新。' },
+                    { icon: '💰', title: '財帛', desc: '野心大。缺乏自信影響收入。' },
+                    { icon: '❤️', title: '感情', desc: '不宜早婚。農曆 1/7 月注意相處。' },
+                    { icon: '✈️', title: '遷移', desc: '事業上多能為人服務。' }
+                ],
+                highlights: {
+                    best: '破軍祿在官祿宮會轉天梁祿到兄弟宮。',
+                    worst: '容易畫地自限，影響財運。'
+                },
+                blindSpots: ['內心糾結自信不足。', '對錢慾望大但守不住。'],
+                months: {
+                    good: [{ m: '4月', d: '人脈朋友關係不錯' }, { m: '10月', d: '利用親友機會' }],
+                    bad: [{ m: '1月', d: '配偶情緒不佳' }, { m: '7月', d: '感覺被管' }]
+                },
+                advice: ['克服自信不足。', '投入服務領域。', '不宜早婚。'],
+                videoLink: 'iLucky986/七殺/命宮在午/癸年/2026運勢'
+            }
+        };
+
+        let currentYear = '甲';
+
+        function renderApp() {
+            const data = fortuneData[currentYear];
+            const app = document.getElementById('app');
+            
+            app.innerHTML = `
+                <div class="text-center mb-8 animate-fade-in">
+                    <h1 class="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-300 bg-clip-text text-transparent mb-2">2026 七殺星在午宮流年運勢</h1>
+                    <div class="flex justify-between items-center bg-slate-800 p-2 rounded-full overflow-x-auto scrollbar-hide mb-4 shadow-xl border border-slate-700">
+                        ${['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'].map(y => `
+                            <button onclick="changeYear('${y}')" class="flex-shrink-0 w-10 h-10 rounded-full font-bold transition-all duration-300 ${currentYear === y ? 'bg-purple-600 text-white shadow-lg scale-110' : 'text-slate-400 hover:bg-slate-700 hover:text-white'}">${y}</button>
+                        `).join('')}
+                    </div>
+                    <p class="text-slate-400">官方網站：<a href="https://www.ilucky986.com" target="_blank" class="text-purple-400 hover:text-purple-300 underline transition">www.ilucky986.com</a></p>
+                </div>
+
+                <div class="bg-slate-800/60 backdrop-blur border border-slate-700 rounded-2xl shadow-2xl overflow-hidden animate-fade-in">
+                    <div class="p-6 bg-gradient-to-r from-slate-800 to-slate-900 border-b border-slate-700 flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div class="text-center md:text-left">
+                            <h2 class="text-2xl font-bold text-white">${data.year}</h2>
+                            <p class="text-purple-400 text-sm font-medium">${data.title}</p>
+                        </div>
+                        <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(data.videoLink)}" target="_blank" class="bg-red-600 px-6 py-2 rounded-lg text-sm font-bold hover:bg-red-700 transition flex items-center gap-2">
+                           觀看影片
+                        </a>
+                    </div>
+                    
+                    <div class="p-6 space-y-8">
+                        <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-700">
+                            <h3 class="text-slate-500 text-xs font-bold mb-2 uppercase tracking-widest">✨ 命宮星曜組合</h3>
+                            <p class="text-slate-200 leading-relaxed">${data.stars}</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            ${data.core.map(c => `
+                                <div class="bg-slate-700/20 p-4 rounded-xl">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <div class="text-2xl">${c.icon}</div>
+                                        <span class="font-bold text-slate-100">${c.title}</span>
+                                    </div>
+                                    <p class="text-sm text-slate-400 leading-relaxed">${c.desc}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div class="bg-emerald-900/10 border border-emerald-500/20 p-5 rounded-xl">
+                                    <h4 class="text-emerald-400 font-bold mb-3">✨ 好運與格局亮點</h4>
+                                    <p class="text-sm text-slate-300 leading-relaxed">${data.highlights.best}</p>
+                                </div>
+                                <div class="bg-red-900/10 border border-red-500/20 p-5 rounded-xl">
+                                    <h4 class="text-red-400 font-bold mb-3">⚠️ 重要注意點</h4>
+                                    <p class="text-sm text-slate-300 leading-relaxed">${data.highlights.worst}</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-700/20 p-5 rounded-xl border border-slate-600/30">
+                                <h4 class="text-slate-300 font-bold mb-4">🔍 盲點分析</h4>
+                                <ul class="space-y-3">
+                                    ${data.blindSpots.map(s => `
+                                        <li class="flex items-start gap-2 text-sm text-slate-400">
+                                            <span class="text-slate-600 mt-1">•</span>
+                                            <span>${s}</span>
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-emerald-900/20 border border-emerald-500/20 p-5 rounded-xl">
+                                <h4 class="text-emerald-400 font-bold mb-4 text-center">2026 好運月份</h4>
+                                <div class="space-y-3">
+                                    ${data.months.good.map(m => `
+                                        <div class="flex gap-3 text-sm">
+                                            <span class="bg-emerald-500 text-emerald-950 font-bold px-2 py-0.5 rounded h-fit shrink-0">農曆 ${m.m}</span>
+                                            <span class="text-slate-300">${m.d}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                            <div class="bg-red-900/20 border border-red-500/20 p-5 rounded-xl">
+                                <h4 class="text-red-400 font-bold mb-4 text-center">2026 壞運月份</h4>
+                                <div class="space-y-3">
+                                    ${data.months.bad.map(m => `
+                                        <div class="flex gap-3 text-sm">
+                                            <span class="bg-red-500 text-red-950 font-bold px-2 py-0.5 rounded h-fit shrink-0">農曆 ${m.m}</span>
+                                            <span class="text-slate-300">${m.d}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-purple-900/30 to-slate-800 p-6 rounded-xl border border-purple-500/30">
+                            <h4 class="text-purple-300 font-bold mb-4">強運關鍵建議</h4>
+                            <ul class="space-y-3">
+                                ${data.advice.map((a, i) => `
+                                    <li class="flex items-start gap-3">
+                                        <span class="bg-purple-500/20 text-purple-400 w-5 h-5 rounded-full flex items-center justify-center shrink-0 text-xs font-bold">${i+1}</span>
+                                        <span class="text-slate-200 text-sm">${a}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center text-slate-600 text-[10px] mt-12 pb-8">
+                   資料來源: iLucky986 愛幸運紫微斗數 | 以上分析僅供參考
+                </div>
+            `;
+        }
+
+        function changeYear(y) {
+            currentYear = y;
+            renderApp();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        renderApp();
+    </script>
+</body>
+</html>
